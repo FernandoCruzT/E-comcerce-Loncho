@@ -1,0 +1,70 @@
+.catalogo-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.catalogo-header {
+  margin-bottom: 1.5rem;
+}
+
+.header-title {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0 0 0.25rem;
+}
+
+.header-sub {
+  color: #666666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filtro-btn {
+  background: #1a1a1a;
+  color: #888888;
+  border: 1px solid #333333;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filtro-btn:hover {
+  border-color: #e63946;
+  color: #e63946;
+}
+
+.filtro-btn.active {
+  background: #e63946;
+  border-color: #e63946;
+  color: #ffffff;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.loading {
+  text-align: center;
+  color: #666666;
+  padding: 4rem 0;
+}

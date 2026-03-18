@@ -1,0 +1,25 @@
+<article class="card">
+  <div class="img-wrap">
+    <img class="card-img" [src]="product.imageUrl" [alt]="product.name" />
+    <span class="category-tag">{{ product.category }}</span>
+    @if (!product.inStock) {
+      <span class="sold-out-overlay">AGOTADO</span>
+    }
+  </div>
+
+  <div class="card-body">
+    <h3 class="card-title">{{ product.name }}</h3>
+    <p class="card-desc">{{ product.description }}</p>
+
+    <div class="card-footer">
+      <span class="card-price">{{ product.price | currency:'MXN':'symbol':'1.0-0' }}</span>
+      <button
+        class="btn-add"
+        [class.disabled]="!product.inStock"
+        [disabled]="!product.inStock"
+        (click)="onAdd()">
+        {{ product.inStock ? '+ Agregar' : 'Agotado' }}
+      </button>
+    </div>
+  </div>
+</article>

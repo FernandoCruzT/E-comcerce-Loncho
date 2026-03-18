@@ -1,0 +1,35 @@
+<div class="catalogo-wrap">
+
+  <header class="catalogo-header">
+    <div class="header-info">
+      <h1 class="header-title">Nueva Colección</h1>
+      <p class="header-sub">{{ inStockCount() }} piezas disponibles</p>
+    </div>
+  </header>
+
+  <!-- Filtros por categoría -->
+  <div class="filtros">
+    @for (cat of categorias(); track cat) {
+      <button
+        class="filtro-btn"
+        [class.active]="categoriaActiva() === cat"
+        (click)="filtrar(cat)">
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <!-- Grid de productos -->
+  @if (products().length === 0) {
+    <div class="loading">
+      <p>Cargando productos...</p>
+    </div>
+  } @else {
+    <section class="grid">
+      @for (p of productosFiltrados(); track p.id) {
+        <app-product-card [product]="p" (add)="agregar($event)" />
+      }
+    </section>
+  }
+
+</div>

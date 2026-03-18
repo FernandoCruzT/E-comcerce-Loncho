@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+
+  <product>
+    <id>1</id>
+    <name>Hoodie Oversized Negro</name>
+    <price>699</price>
+    <imageUrl>assets/img/hoddie.jpg</imageUrl>
+    <category>Hoodies</category>
+    <description>Hoodie oversized de algodón pesado 380gsm, corte dropped shoulder. Esencial del armario urbano.</description>
+    <inStock>true</inStock>
+  </product>
+
+  <product>
+    <id>2</id>
+    <name>Cargo Pants Gris</name>
+    <price>849</price>
+    <imageUrl>assets/img/Pantalon.png</imageUrl>
+    <category>Pantalones</category>
+    <description>Pantalón cargo de sarga con 6 bolsillos funcionales. Ajuste relajado, elástico en cintura.</description>
+    <inStock>true</inStock>
+  </product>
+
+  <product>
+    <id>3</id>
+    <name>Tee Gráfica Loncho</name>
+    <price>399</price>
+    <imageUrl>assets/img/camisa.jpg</imageUrl>
+    <category>Camisetas</category>
+    <description>Camiseta unisex de algodón 200gsm con gráfica exclusiva de la marca. Corte boxy.</description>
+    <inStock>true</inStock>
+  </product>
+
+  <product>
+    <id>4</id>
+    <name>Jogger Fleece Crema</name>
+    <price>599</price>
+    <imageUrl>assets/img/jogger.jpg</imageUrl>
+    <category>Pantalones</category>
+    <description>Jogger de fleece cepillado interior, puños acanalados y bolsillos laterales. Comodidad total.</description>
+    <inStock>true</inStock>
+  </product>
+
+  <product>
+    <id>5</id>
+    <name>Bomber Jacket Negra</name>
+    <price>1299</price>
+    <imageUrl>assets/img/chaque.jpg</imageUrl>
+    <category>Outerwear</category>
+    <description>Bomber de nylon con forro satinado, ribetes acanalados y bolsillos laterales con cierre.</description>
+    <inStock>true</inStock>
+  </product>
+
+  <product>
+    <id>6</id>
+    <name>Longsleeve Waffle Gris</name>
+    <price>449</price>
+    <imageUrl>assets/img/waffle.png</imageUrl>
+    <category>Camisetas</category>
+    <description>Manga larga de tejido waffle con cuello redondo. Versátil para capas o uso solo.</description>
+    <inStock>true</inStock>
+  </product>
+
+  <product>
+    <id>7</id>
+    <name>Gorra Dad Hat Loncho</name>
+    <price>299</price>
+    <imageUrl>assets/img/hat.jpg</imageUrl>
+    <category>Accesorios</category>
+    <description>Dad hat no estructurada con bordado frontal de Loncho. Ajuste con hebilla trasera.</description>
+    <inStock>true</inStock>
+  </product>
+
+  <product>
+    <id>8</id>
+    <name>Hoodie Zip Rojo</name>
+    <price>749</price>
+    <imageUrl>assets/img/cierre.jpg</imageUrl>
+    <category>Hoodies</category>
+    <description>Hoodie con cierre completo, capucha ajustable y bolsillo canguro. Pieza clave del streetwear.</description>
+    <inStock>false</inStock>
+  </product>
+
+  <product>
+    <id>9</id>
+    <name>Shorts Cargo Arena</name>
+    <price>499</price>
+    <imageUrl>assets/img/short.jpg</imageUrl>
+    <category>Pantalones</category>
+    <description>Short cargo por debajo de la rodilla con bolsillos laterales tipo militar. Ligero y resistente.</description>
+    <inStock>true</inStock>
+  </product>
+
+  <product>
+    <id>10</id>
+    <name>Tote Bag Loncho</name>
+    <price>199</price>
+    <imageUrl>assets/img/tote.jpg</imageUrl>
+    <category>Accesorios</category>
+    <description>Tote bag de lona 100% algodón con serigrafía de Loncho. Resistente y espaciosa.</description>
+    <inStock>true</inStock>
+  </product>
+
+</products>

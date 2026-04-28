@@ -18,17 +18,23 @@
 
       <!-- Lista de productos -->
       <div class="items-list">
-        @for (producto of carrito(); track producto.id) {
+        @for (item of carrito(); track $index) {
           <div class="item">
-            <img class="item-img" [src]="producto.imageUrl" [alt]="producto.name" />
+            <img class="item-img" [src]="item.product.imageUrl" [alt]="item.product.name" />
             <div class="item-info">
-              <p class="item-name">{{ producto.name }}</p>
-              <p class="item-cat">{{ producto.category }}</p>
-              <p class="item-desc">{{ producto.description }}</p>
+              <p class="item-name">{{ item.product.name }}</p>
+              <p class="item-cat">{{ item.product.category }}</p>
+              <p class="item-desc">{{ item.product.description }}</p>
+              <p class="item-unit">{{ item.product.price | currency:'MXN':'symbol':'1.0-0' }} c/u</p>
             </div>
             <div class="item-right">
-              <span class="item-price">{{ producto.price | currency:'MXN':'symbol':'1.0-0' }}</span>
-              <button class="btn-quitar" (click)="quitar(producto.id)">Quitar</button>
+              <span class="item-price">{{ item.product.price * item.cantidad | currency:'MXN':'symbol':'1.0-0' }}</span>
+              <div class="cantidad-ctrl">
+                <button class="btn-cantidad" (click)="disminuir(item.product.id)">−</button>
+                <span class="cantidad-num">{{ item.cantidad }}</span>
+                <button class="btn-cantidad" (click)="aumentar(item.product.id)">+</button>
+              </div>
+              <button class="btn-quitar" (click)="eliminar(item.product.id)">Quitar</button>
             </div>
           </div>
         }
@@ -39,7 +45,7 @@
         <h3 class="resumen-title">Resumen del pedido</h3>
 
         <div class="resumen-row">
-          <span>Subtotal ({{ carrito().length }} artículos)</span>
+          <span>Subtotal ({{ cantidadTotal() }} artículos)</span>
           <span>{{ total() | currency:'MXN':'symbol':'1.0-0' }}</span>
         </div>
         <div class="resumen-row">
@@ -53,6 +59,9 @@
         </div>
 
         <div class="resumen-actions">
+          <a routerLink="/checkout" class="btn-checkout">
+            Pagar con PayPal
+          </a>
           <button class="btn-primary" (click)="exportarXML()">
             📄 Generar Recibo XML
           </button>

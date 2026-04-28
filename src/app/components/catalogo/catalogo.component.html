@@ -27,7 +27,7 @@
   } @else {
     <section class="grid">
       @for (p of productosFiltrados(); track p.id) {
-        <app-product-card [product]="p" (add)="agregar($event)" />
+        <app-product-card [product]="p" (add)="agregar($event)" (remove)="quitar($event)" />
       }
     </section>
   }

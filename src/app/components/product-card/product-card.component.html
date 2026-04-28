@@ -13,13 +13,25 @@
 
     <div class="card-footer">
       <span class="card-price">{{ product.price | currency:'MXN':'symbol':'1.0-0' }}</span>
-      <button
-        class="btn-add"
-        [class.disabled]="!product.inStock"
-        [disabled]="!product.inStock"
-        (click)="onAdd()">
-        {{ product.inStock ? '+ Agregar' : 'Agotado' }}
-      </button>
+
+      @if (cantidad() > 0) {
+        <div class="cantidad-ctrl">
+          <button class="btn-cantidad" (click)="disminuir()">−</button>
+          <span class="cantidad-num">{{ cantidad() }}</span>
+          <button
+            class="btn-cantidad"
+            [disabled]="!product.inStock"
+            (click)="aumentar()">+</button>
+        </div>
+      } @else {
+        <button
+          class="btn-add"
+          [class.disabled]="!product.inStock"
+          [disabled]="!product.inStock"
+          (click)="aumentar()">
+          {{ product.inStock ? '+ Agregar' : 'Agotado' }}
+        </button>
+      }
     </div>
   </div>
 </article>

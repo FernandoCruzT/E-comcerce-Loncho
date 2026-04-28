@@ -1,9 +1,7 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, Signal } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { CarritoService } from '../../services/carrito.service';
-import { Signal } from '@angular/core';
-import { Product } from '../../models/product.model';
+import { CarritoService, CartItem } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -13,15 +11,25 @@ import { Product } from '../../models/product.model';
   styleUrl: './carrito.component.css',
 })
 export class CarritoComponent {
-  carrito: Signal<Product[]>;
-  total   = computed(() => this.carritoService.total());
+  carrito:       Signal<CartItem[]>;
+  total        = computed(() => this.carritoService.total());
+  cantidadTotal = computed(() => this.carritoService.cantidadTotal());
 
   constructor(private carritoService: CarritoService) {
     this.carrito = this.carritoService.productos;
   }
 
-  quitar(id: number): void {
+  aumentar(id: number): void {
+    const item = this.carrito().find(i => i.product.id === id);
+    if (item) this.carritoService.agregar(item.product);
+  }
+
+  disminuir(id: number): void {
     this.carritoService.quitar(id);
+  }
+
+  eliminar(id: number): void {
+    this.carritoService.eliminar(id);
   }
 
   vaciar(): void {

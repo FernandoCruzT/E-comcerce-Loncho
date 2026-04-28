@@ -121,3 +121,37 @@
   color: #666666;
   cursor: not-allowed;
 }
+
+.cantidad-ctrl {
+  display: flex;
+  align-items: center;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.btn-cantidad {
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.btn-cantidad:hover:not(:disabled) { background: #e63946; }
+.btn-cantidad:disabled { color: #444444; cursor: not-allowed; }
+
+.cantidad-num {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 26px;
+  text-align: center;
+}

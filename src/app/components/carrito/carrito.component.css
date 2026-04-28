@@ -115,6 +115,45 @@
   font-size: 1rem;
 }
 
+.item-unit {
+  color: #555555;
+  font-size: 0.72rem;
+  margin: 0.3rem 0 0;
+}
+
+.cantidad-ctrl {
+  display: flex;
+  align-items: center;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.btn-cantidad {
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.btn-cantidad:hover { background: #e63946; }
+
+.cantidad-num {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 26px;
+  text-align: center;
+}
+
 .btn-quitar {
   background: transparent;
   border: 1px solid #333333;
@@ -178,6 +217,26 @@
   flex-direction: column;
   gap: 0.75rem;
 }
+
+/* Botón PayPal checkout */
+.btn-checkout {
+  display: block;
+  width: 100%;
+  background: #0070ba;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-checkout:hover { background: #005ea6; }
 
 /* Botones globales */
 .btn-primary {

@@ -1,0 +1,80 @@
+<div class="checkout-wrap">
+
+  <!-- Pago confirmado -->
+  @if (pago()) {
+    <div class="confirmacion">
+      <div class="confirmacion-icon">✅</div>
+      <h2>¡Pago exitoso!</h2>
+      <p class="conf-detalle">Gracias por tu compra en <strong>Loncho</strong>.</p>
+      <div class="conf-info">
+        <div class="conf-row"><span>Orden</span><span>{{ pago()!.orderID }}</span></div>
+        <div class="conf-row"><span>Estado</span><span class="estado-ok">{{ pago()!.status }}</span></div>
+        <div class="conf-row"><span>Correo</span><span>{{ pago()!.payerEmail }}</span></div>
+        <div class="conf-row">
+          <span>Total pagado</span>
+          <span>{{ pago()!.amount.value | currency:'MXN':'symbol':'1.2-2' }}</span>
+        </div>
+      </div>
+      <a routerLink="/" class="btn-primary">Volver al catálogo</a>
+    </div>
+
+  } @else {
+
+    <div class="checkout-header">
+      <h2 class="checkout-title">Finalizar compra</h2>
+      <a routerLink="/carrito" class="back-link">← Volver al carrito</a>
+    </div>
+
+    @if (carrito().length === 0 && !cargando()) {
+      <div class="empty-state">
+        <p class="empty-icon">🛒</p>
+        <p>Tu carrito está vacío.</p>
+        <a routerLink="/" class="btn-primary">Ver catálogo</a>
+      </div>
+
+    } @else {
+
+      <div class="checkout-body">
+
+        <!-- Resumen del pedido -->
+        <div class="resumen">
+          <h3 class="resumen-title">Resumen del pedido</h3>
+
+          @for (item of carrito(); track $index) {
+            <div class="resumen-item">
+              <img class="resumen-img" [src]="item.product.imageUrl" [alt]="item.product.name" />
+              <span class="resumen-nombre">{{ item.product.name }} × {{ item.cantidad }}</span>
+              <span class="resumen-precio">{{ item.product.price * item.cantidad | currency:'MXN':'symbol':'1.0-0' }}</span>
+            </div>
+          }
+
+          <div class="resumen-divider"></div>
+          <div class="resumen-total-row">
+            <span>Total</span>
+            <span class="resumen-total-val">{{ total() | currency:'MXN':'symbol':'1.0-0' }}</span>
+          </div>
+        </div>
+
+        <!-- Pago con PayPal -->
+        <div class="pago-section">
+          <h3 class="pago-title">Pagar con PayPal</h3>
+
+          @if (error()) {
+            <p class="error-msg">{{ error() }}</p>
+          }
+
+          @if (cargando()) {
+            <div class="loading">
+              <span class="spinner"></span>
+              <span>Procesando...</span>
+            </div>
+          }
+
+          <div id="paypal-button-container"></div>
+        </div>
+
+      </div>
+    }
+  }
+
+</div>

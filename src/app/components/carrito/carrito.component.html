@@ -1,0 +1,77 @@
+<div class="carrito-wrap">
+
+  <div class="carrito-header">
+    <h2 class="carrito-title">Tu Carrito</h2>
+    <a routerLink="/" class="back-link">← Seguir comprando</a>
+  </div>
+
+  @if (carrito().length === 0) {
+    <div class="empty-state">
+      <p class="empty-icon">🛒</p>
+      <p class="empty-text">Tu carrito está vacío</p>
+      <a routerLink="/" class="btn-primary">Ver catálogo</a>
+    </div>
+
+  } @else {
+
+    <div class="carrito-body">
+
+      <!-- Lista de productos -->
+      <div class="items-list">
+        @for (item of carrito(); track $index) {
+          <div class="item">
+            <img class="item-img" [src]="item.product.imageUrl" [alt]="item.product.name" />
+            <div class="item-info">
+              <p class="item-name">{{ item.product.name }}</p>
+              <p class="item-cat">{{ item.product.category }}</p>
+              <p class="item-desc">{{ item.product.description }}</p>
+              <p class="item-unit">{{ item.product.price | currency:'MXN':'symbol':'1.0-0' }} c/u</p>
+            </div>
+            <div class="item-right">
+              <span class="item-price">{{ item.product.price * item.cantidad | currency:'MXN':'symbol':'1.0-0' }}</span>
+              <div class="cantidad-ctrl">
+                <button class="btn-cantidad" (click)="disminuir(item.product.id)">−</button>
+                <span class="cantidad-num">{{ item.cantidad }}</span>
+                <button class="btn-cantidad" (click)="aumentar(item.product.id)">+</button>
+              </div>
+              <button class="btn-quitar" (click)="eliminar(item.product.id)">Quitar</button>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Resumen -->
+      <div class="resumen">
+        <h3 class="resumen-title">Resumen del pedido</h3>
+
+        <div class="resumen-row">
+          <span>Subtotal ({{ cantidadTotal() }} artículos)</span>
+          <span>{{ total() | currency:'MXN':'symbol':'1.0-0' }}</span>
+        </div>
+        <div class="resumen-row">
+          <span>Envío</span>
+          <span class="envio-gratis">Gratis</span>
+        </div>
+
+        <div class="resumen-total">
+          <span>Total</span>
+          <span>{{ total() | currency:'MXN':'symbol':'1.0-0' }}</span>
+        </div>
+
+        <div class="resumen-actions">
+          <a routerLink="/checkout" class="btn-checkout">
+            Pagar con PayPal
+          </a>
+          <button class="btn-primary" (click)="exportarXML()">
+            📄 Generar Recibo XML
+          </button>
+          <button class="btn-secondary" (click)="vaciar()">
+            Vaciar carrito
+          </button>
+        </div>
+      </div>
+
+    </div>
+  }
+
+</div>

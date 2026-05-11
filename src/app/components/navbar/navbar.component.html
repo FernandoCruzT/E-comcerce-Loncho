@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <a class="brand" routerLink="/">
+    <span class="brand-logo">L</span>
+    <span class="brand-name">LONCHO</span>
+  </a>
+
+  <div class="nav-links">
+    <a routerLink="/" class="nav-link">Catálogo</a>
+    <a routerLink="/carrito" class="nav-link cart-link">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-label">Carrito</span>
+      @if (cantidad() > 0) {
+        <span class="cart-badge">{{ cantidad() }}</span>
+      }
+    </a>
+  </div>
+</nav>

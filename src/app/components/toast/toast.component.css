@@ -1,0 +1,29 @@
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #111111;
+  border: 1px solid #e63946;
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  z-index: 9999;
+  max-width: 320px;
+  box-shadow: 0 4px 24px rgba(230, 57, 70, 0.25);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast strong {
+  color: #e63946;
+  font-weight: 700;
+}
